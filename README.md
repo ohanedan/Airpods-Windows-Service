@@ -9,7 +9,7 @@ Using this service, you can get your Airpods data as JSON over the UDP socket.
 
 ## Installation
 1. Download/clone project
-2. Run "python service.py install" in cmd as Administrator or simply click "register-service.bat" two times
+2. Run "python service.py install" in cmd as Administrator or simply click "register-service.bat"
 3. Run Service on Windows Services
 4. After first run, config file automatically created on your SYSTEMDRIVE(ex C:) as ".airpods-config.json".
 You can change the UDP port using this config.
