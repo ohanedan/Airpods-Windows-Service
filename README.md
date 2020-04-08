@@ -1,5 +1,3 @@
-# The project is being developed and has not release yet.
-
 # Airpods Windows Service
 
 A Windows Service for reading Airpods Battery and some other informations.
@@ -22,10 +20,17 @@ The data looks like the following. You can use this JSON data in any application
 
 ```
 {
-   "status":0, //IF AIRPODS FOUND IT RETURNS 1
-   "error":"", //IF ANY ERROR OCCURED, IT IS HERE
-   "rssi":-670, //RECEIVED SIGNAL STRENGTH INDICATION
-   "addr":"" //MAC ADDRESS FROM WHICH DATA IS TAKEN
+   "status" : 0, //IF AIRPODS FOUND IT RETURNS 1
+   "error" : "", //IF ANY ERROR OCCURED, IT IS HERE
+   "rssi" : -670, //RECEIVED SIGNAL STRENGTH INDICATION
+   "addr" : "", //MAC ADDRESS FROM WHICH DATA IS TAKEN
+   "left" : -1, //LEFT BATTERY LEVEL (0-100) (-1 is unknown)
+   "right" : -1, //RIGHT BATTERY LEVEL (0-100) (-1 is unknown)
+   "case" : -1, //CASE BATTERY LEVEL (0-100) (-1 is unknown)
+   "model" : "", //"pro" or "other"
+   "charging_case" : false, //IS CASE CHARGING (false = no or unknown)
+   "charging_right" : false, //IS RIGHT CHARGING (false = no or unknown)
+   "charging_left" : false //IS LEFT CHARGING (false = no or unknown)
 }
 ```
 
