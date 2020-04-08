@@ -1,7 +1,6 @@
 # Airpods Windows Service
 A Windows Service for reading Airpods Battery and some other informations.
-- The project is being developed and has not Release yet.
-- The project is tested with Airpods Pro.
+### The project is being developed and has not Release yet.
 
 ## Requirements
 - Windows 10, version 16299 (Fall Creators Update) or greater
