@@ -62,8 +62,8 @@ class SMWinservice(win32serviceutil.ServiceFramework):
 
     def main(self):
         while not self.stopping:
-            data = str(self.airpods.GetDataJsonString())
             try:
+                data = str(self.airpods.GetDataJsonString())
                 self.sock.sendto(data.encode(), ("127.0.0.1", self.conf["udp_port"]))
             except Exception as ex:
                 self.logger.Log("error on send: " + str(ex))

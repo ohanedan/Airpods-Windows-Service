@@ -86,8 +86,10 @@ class Airpods:
         return result
 
     def GetData(self):
-        loop = asyncio.get_event_loop()
-        return loop.run_until_complete(self.run())
+        loop = asyncio.new_event_loop()
+        data = loop.run_until_complete(self.run())
+        loop.close()
+        return data
 
     def GetDataJsonString(self):
         data = self.GetData()
