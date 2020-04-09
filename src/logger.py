@@ -25,3 +25,7 @@ class Logger():
         logger = logging.getLogger()
         logger.addHandler(handler)
         logger.setLevel(logging.INFO)
+
+class EmptyLogger():
+    def Log(self, message):
+        return

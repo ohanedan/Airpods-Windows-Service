@@ -2,8 +2,15 @@ import json
 import asyncio,threading
 
 from bleak import discover
+from logger import EmptyLogger
 
 class Airpods:
+    def __init__(self, service = None):
+        if service != None:
+            self.logger = service.logger
+        else:
+            self.logger = EmptyLogger()
+
     def isFlipped(self, data):
         return format((int(""+data[10], 16)+(0x10)), 'b')[3] == '0'
 
@@ -74,6 +81,7 @@ class Airpods:
             except Exception as ex:
                 result = self.EmptyResult()
                 result["error"] = str(ex)
+                self.logger.Log("error on Airpods: " + str(ex))
 
         return result
 

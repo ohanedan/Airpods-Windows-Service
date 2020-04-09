@@ -48,11 +48,11 @@ class SMWinservice(win32serviceutil.ServiceFramework):
     def SvcDoRun(self):
         self.stopping = False
         self.start()
-        self.logger.Log("starting asdasd")
+        self.logger.Log("starting")
         self.main()
 
     def start(self):
-        self.airpods = Airpods()
+        self.airpods = Airpods(self)
         self.conf = Config(self).Data
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         pass
