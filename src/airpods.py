@@ -6,6 +6,7 @@ from logger import EmptyLogger
 
 class Airpods:
     def __init__(self, service = None):
+        
         if service != None:
             self.logger = service.logger
         else:
