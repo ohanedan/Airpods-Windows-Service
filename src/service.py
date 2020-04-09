@@ -6,8 +6,6 @@ import servicemanager
 import win32event
 import win32service
 
-import time
-
 from airpods import Airpods
 from config import Config
 
