@@ -24,5 +24,5 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 :--------------------------------------
 
-pushd src
-python service.py install
+airpods-windows-service.exe remove
+set /p DUMMY=Press ENTER to continue...
