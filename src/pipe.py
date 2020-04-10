@@ -16,10 +16,18 @@ class Pipe():
              win32pipe.PIPE_NOWAIT, 1, 65536, 65536, 0, None)
 
         self.logger.Log("pipe created")
+        self.hasClient = False
 
     def SendData(self, data):
         try:
-            win32pipe.ConnectNamedPipe(self.pipe, None)
-            win32file.WriteFile(self.pipe, data)
+            if not self.hasClient:
+                win32pipe.ConnectNamedPipe(self.pipe, None)
+                self.hasClient = True
+            else:
+                win32file.WriteFile(self.pipe, data)
+                win32file.FlushFileBuffers(self.pipe)
         except Exception:
+            if self.hasClient:
+                win32pipe.DisconnectNamedPipe(self.pipe)
+                self.hasClient = False
             return
