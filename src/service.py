@@ -62,6 +62,7 @@ class SMWinservice(win32serviceutil.ServiceFramework):
         while not self.stopping:
             try:
                 data = self.airpods.GetDataJsonString()
+                data = data + "\n"
                 self.pipe.SendData(data.encode())
             except Exception as ex:
                 self.logger.Log("error on send: " + str(ex))
