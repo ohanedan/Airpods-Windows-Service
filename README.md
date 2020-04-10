@@ -7,11 +7,23 @@ Using this service, you can get your Airpods data as JSON over the UDP socket.
 - Windows 10, version 16299 (Fall Creators Update) or greater
 - Bluetooth 4.0+
 
-## Installation
+## Installation for End Users
+soon
+
+## Installation for Developers
 1. Download/clone project
 2. Run "build.bat". Executable file will automatically create in build folder.
 2. In build folder, Run "airpods-windows-service.exe install" in cmd as Administrator or simply click "register-service.bat"
 3. Run Service on Windows Services
+4. After first run, config file automatically created on your SYSTEMDRIVE(ex C:) as ".airpods-config.json".
+You can change the UDP port using this config.
+
+or
+
+1. Download/clone project
+2. In src folder, Run "python3 service.py install" in cmd as Administrator
+3. Run Service on Windows Services or simply run "python3 service.py start" as Administrator in same folder.
+3. You can test the service without installing it with the command "python3 service.py debug".
 4. After first run, config file automatically created on your SYSTEMDRIVE(ex C:) as ".airpods-config.json".
 You can change the UDP port using this config.
 
