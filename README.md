@@ -25,7 +25,8 @@ or
 
 ## Usage
 While the service is running, it will automatically send JSON data over the named pipe.
-You can read pipe which named **airpods-windows-service** for reaching data.
+You can read pipe which named **airpods-service** for reaching data.
+Each data comes in newline.
 The data looks like the following. You can use this JSON data in any application you create.
 
 ```
