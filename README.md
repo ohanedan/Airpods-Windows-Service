@@ -1,7 +1,7 @@
 # Airpods Windows Service
 
 A Windows Service for reading Airpods Battery and some other informations.
-Using this service, you can get your Airpods data as JSON over the UDP socket.
+Using this service, you can get your Airpods data as JSON over the named pipe.
 
 ## Requirements
 - Windows 10, version 16299 (Fall Creators Update) or greater
@@ -15,20 +15,17 @@ soon
 2. Run "build.bat". Executable file will automatically create in build folder.
 2. In build folder, Run "airpods-windows-service.exe install" in cmd as Administrator or simply click "register-service.bat"
 3. Run Service on Windows Services
-4. After first run, config file automatically created on your SYSTEMDRIVE(ex C:) as ".airpods-config.json".
-You can change the UDP port using this config.
 
 or
 
 1. Download/clone project
 2. In src folder, Run "python3 service.py install" in cmd as Administrator
 3. Run Service on Windows Services or simply run "python3 service.py start" as Administrator in same folder.
-3. You can test the service without installing it with the command "python3 service.py debug".
-4. After first run, config file automatically created on your SYSTEMDRIVE(ex C:) as ".airpods-config.json".
-You can change the UDP port using this config.
+4. You can test the service without installing it with the command "python3 service.py debug".
 
 ## Usage
-While the service is running, it will automatically send JSON data over the UDP port you set in the config file.
+While the service is running, it will automatically send JSON data over the named pipe.
+You can read pipe which named **airpods-windows-service** for reaching data.
 The data looks like the following. You can use this JSON data in any application you create.
 
 ```

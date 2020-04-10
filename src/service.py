@@ -1,5 +1,3 @@
-import socket
-
 import servicemanager
 import win32serviceutil
 import win32event
@@ -9,6 +7,7 @@ import sys
 from airpods import Airpods
 from config import Config
 from logger import Logger
+from pipe import Pipe
 
 class SMWinservice(win32serviceutil.ServiceFramework):
 
@@ -36,7 +35,6 @@ class SMWinservice(win32serviceutil.ServiceFramework):
         self.logger = Logger(self)
         win32serviceutil.ServiceFramework.__init__(self, args)
         self.hWaitStop = win32event.CreateEvent(None, 0, 0, None)
-        socket.setdefaulttimeout(60)
 
     def SvcStop(self):
         self.stopping = True
@@ -53,8 +51,8 @@ class SMWinservice(win32serviceutil.ServiceFramework):
 
     def start(self):
         self.airpods = Airpods(self)
-        self.conf = Config(self).Data
-        self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.conf = Config(self).Data    
+        self.pipe = Pipe(self)
         pass
 
     def stop(self):
@@ -63,8 +61,8 @@ class SMWinservice(win32serviceutil.ServiceFramework):
     def main(self):
         while not self.stopping:
             try:
-                data = str(self.airpods.GetDataJsonString())
-                self.sock.sendto(data.encode(), ("127.0.0.1", self.conf["udp_port"]))
+                data = self.airpods.GetDataJsonString()
+                self.pipe.SendData(data.encode())
             except Exception as ex:
                 self.logger.Log("error on send: " + str(ex))
                 break
