@@ -10,7 +10,7 @@ class Pipe():
         else:
             self.logger = EmptyLogger()
 
-        self.pipe = win32pipe.CreateNamedPipe(r'\\.\pipe\airpods-windows-service',
+        self.pipe = win32pipe.CreateNamedPipe(r'\\.\pipe\airpods-service',
         win32pipe.PIPE_ACCESS_OUTBOUND,
         win32pipe.PIPE_TYPE_MESSAGE | win32pipe.PIPE_READMODE_MESSAGE |
              win32pipe.PIPE_NOWAIT, 1, 65536, 65536, 0, None)
