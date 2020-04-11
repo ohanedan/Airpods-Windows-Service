@@ -8,7 +8,9 @@ Using this service, you can get your Airpods data as JSON over the named pipe.
 - Bluetooth 4.0+
 
 ## Installation for End Users
-soon
+You can download the latest release from the link below.
+
+[Latest Release](https://github.com/ohanedan/Airpods-Windows-Service/releases/latest)
 
 ## Installation for Developers
 1. Download/clone project
