@@ -5,7 +5,6 @@ import win32service
 import sys
 
 from airpods import Airpods
-from config import Config
 from logger import Logger
 from pipe import Pipe
 
@@ -51,7 +50,6 @@ class SMWinservice(win32serviceutil.ServiceFramework):
 
     def start(self):
         self.airpods = Airpods(self)
-        self.conf = Config(self).Data    
         self.pipe = Pipe(self)
         pass
 
