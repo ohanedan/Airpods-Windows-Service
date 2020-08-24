@@ -47,7 +47,7 @@ The data looks like the following. You can use this JSON data in any application
 }
 ```
 
-## Referances
+## References
 - [tzY15368](https://github.com/tzY15368)/**[WinPods](https://github.com/tzY15368/WinPods)**
 - [adolfintel](https://github.com/adolfintel)/**[OpenPods](https://github.com/adolfintel/OpenPods)**
 - [HaroldMills](https://github.com/HaroldMills)/**[Python-Windows-Service-Example](https://github.com/HaroldMills/Python-Windows-Service-Example)**
